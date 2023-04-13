@@ -28,7 +28,7 @@ public class CreateCourierTest {
     }
 
     @Test
-    @DisplayName("Успешная регистрация курьера")
+    @DisplayName("Курьера можно создать")
     public void successfullyCourierCreationTest() {
         ValidatableResponse regResponse = CourierStep.create(courier);
         ValidatableResponse loginResponse = CourierStep.login(CourierCreds.getCredentials(courier));
@@ -39,7 +39,7 @@ public class CreateCourierTest {
     }
 
     @Test
-    @DisplayName("Регистрация курьеров с одинаковыим логином")
+    @DisplayName("Регистрация курьера с логином, который уже существует")
     public void duplicateCourierCreationTest(){
         CourierStep.create(courier);
         id = CourierStep.login(CourierCreds.getCredentials(courier))
@@ -55,7 +55,7 @@ public class CreateCourierTest {
     }
 
     @Test
-    @DisplayName("Регистрация курьера без логина")
+    @DisplayName("Поле логин незаполнено")
     public void courierCreationWithoutLoginTest(){
         courier.setLogin(null);
         ValidatableResponse response = CourierStep.create(courier);
@@ -66,7 +66,7 @@ public class CreateCourierTest {
     }
 
     @Test
-    @DisplayName("Регистрация курьера без пароля")
+    @DisplayName("Поле пароль незаполнено")
     public void courierCreationWithoutPasswordTest(){
         courier.setPassword(null);
         ValidatableResponse response = CourierStep.create(courier);

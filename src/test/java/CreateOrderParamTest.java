@@ -42,19 +42,19 @@ public class CreateOrderParamTest {
     @Parameterized.Parameters(name = "Testdata: {0}, {1}, {8}")
     public static Object[][] getTestData() {
         return new Object[][]{
-                {"Вася", "Иванов", "Колотушкина 13", "Выхино", "79265553535", 5, "01-02-2023",
-                        "some comment", List.of("Black")},
-                {"John", "Rambo", "13 Basket str", "No Subway", "+3123456789", 3, "07-02-2023",
-                        "My war is over", List.of("Gray")},
-                {"Сергей", "Сергеев", "Самая длинная улица в этом городе 15", "Библиотека имени Ленина", "89265553535", 5, "09-02-2023",
-                        "Пазваааани как приедешь", List.of("Black", "Gray")},
-                {"Марк", "Степанов", "Вокзальная 15", "Китай-город", "123456789", 1, "12-02-2023",
-                        "ок", null},
+                {"Анна", "Кот", "Победы, 12", "ВДНХ", "89022222222", 1, "15-04-2023",
+                        "срочно", List.of("Black")},
+                {"Антон", "Антонов", "Почтовая 10", "Рижская", "+79151111111", 2, "02-05-2023",
+                        "Спасибо!", List.of("Gray")},
+                {"Иван", "Иванов", "Молодежная2 к 1", "Курская", "89013333333", 3, "02-06-2023",
+                        "Жду", List.of("Black", "Gray")},
+                {"Татьяна", "Петрова", "Театральная 3", "Савеловская", "+79014444444", 4, "21-04-2023",
+                        "Можно не перезванивать", null},
         };
     }
 
     @Test
-    @DisplayName("Успешное создание заказа с валидными данными")
+    @DisplayName("Cоздание заказа с валидными данными")
     public void successfullyCreateOrderWitchValidDataTest() {
         Order order = new Order(firstName, lastName, address, metroStation, phone, rentTime, deliveryDate, comment, color);
         ValidatableResponse response = OrdersStep.createOrder(order);

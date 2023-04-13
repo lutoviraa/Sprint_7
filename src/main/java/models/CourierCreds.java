@@ -10,13 +10,13 @@ public class CourierCreds {
         this.password = password;
     }
 
-    public String getLogin() {
+    /*public String getLogin() {
         return login;
     }
 
     public String getPassword() {
         return password;
-    }
+    }*/
     public static CourierCreds getCredentials(Courier courier){
         return new CourierCreds(courier.getLogin(),courier.getPassword());
     }

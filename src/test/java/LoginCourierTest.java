@@ -12,7 +12,7 @@ import static config.Config.COURIER_URL;
 import static config.Config.getRqSpec;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
-@Feature("Логин курьера в системе /api/v1/courier/login")
+@Feature("Логин /api/v1/courier/login")
 public class LoginCourierTest {
     Courier courier;
     String id;
@@ -38,7 +38,7 @@ public class LoginCourierTest {
     }
 
     @Test
-    @DisplayName("Успешный логин в системе")
+    @DisplayName("Успешная авторизация")
     public void successfullyLoginTest(){
         ValidatableResponse response = CourierStep.login(CourierCreds.getCredentials(courier));
         response
@@ -86,7 +86,7 @@ public class LoginCourierTest {
     }
 
     @Test
-    @DisplayName("Авторизация без пароля")
+    @DisplayName("Авторизация при незаполненном поле пароль")
     public void loginWithoutPasswordTest(){
         courier.setPassword("");
         ValidatableResponse response = CourierStep.login(CourierCreds.getCredentials(courier));
@@ -99,7 +99,7 @@ public class LoginCourierTest {
     }
 
     @Test
-    @DisplayName("Авторизация без логина")
+    @DisplayName("Авторизация при незаполненном поле логин")
     public void loginWithoutLoginTest(){
         courier.setLogin("");
         ValidatableResponse response = CourierStep.login(CourierCreds.getCredentials(courier));
